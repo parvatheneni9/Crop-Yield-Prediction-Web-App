@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Yield Predictor</title>
+    <style>
+        body {
+            background-color: #0b0b0b;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #3cb371;
+        }
+
+        form {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .button {
+            background-color: #d9534f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .button:hover {
+            background-color: #c9302c;
+        }
+
+        .result {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 24px;
+            color: #ff4c61;
+        }
+    </style>
+</head>
+<body>
+    <h1>Enter Crop Features</h1>
+    <form method="POST">
+        <label for="year">Year</label>
+        <input type="text" name="Year" placeholder="Enter Year" required>
+
+        <label for="rainfall">Average Rainfall (mm/year)</label>
+        <input type="text" name="Average_Rainfall" placeholder="Enter Average Rainfall (mm/year)" required>
+
+        <label for="pesticides">Pesticides (Tonnes)</label>
+        <input type="text" name="Pesticides_Tonnes" placeholder="Enter Pesticides (Tonnes)" required>
+
+        <label for="temperature">Average Temperature (°C)</label>
+        <input type="text" name="Avg_Temp" placeholder="Enter Average Temperature (°C)" required>
+
+        <label for="area">Area (in square kilometers)</label>
+        <input type="text" name="Area" placeholder="Enter Area (in sq km)" required>
+
+        <label for="crop">Crop Item</label>
+        <input type="text" name="Crop" placeholder="Enter any crop name" required>
+
+        <button class="button" type="submit">Predict</button>
+    </form>
+
+    {% if predicted_value %}
+        <div class="result">
+            Predicted Yield Production:<br>
+            {{ predicted_value }}
+        </div>
+    {% endif %}
+</body>
+</html>
+
+
